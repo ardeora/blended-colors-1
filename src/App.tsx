@@ -3,10 +3,10 @@ import "./App.css";
 
 function App() {
   return (
-    <BlendedColor debug={1}>
+    <BlendedColor>
       <Color r={60} g={20} b={90} />
       <Color r={0} g={30} b={60} />
-      <BlendedColor debug={2}>
+      <BlendedColor>
         <Color r={120} g={0} b={60} />
         <Color r={0} g={200} b={0} />
       </BlendedColor>
@@ -14,7 +14,7 @@ function App() {
   );
 }
 
-function BlendedColor(props: { children: ReactNode; debug?: number }) {
+function BlendedColor(props: { children: ReactNode }) {
   const children = React.Children.toArray(props.children);
 
   const calculateAverageColor = useCallback((children: React.ReactNode[]) => {
